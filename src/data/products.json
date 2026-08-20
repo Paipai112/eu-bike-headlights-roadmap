@@ -26,6 +26,7 @@
     "keyMetricSource": "商品标题",
     "attributes": {
       "marketsSold": "DE",
+      "amzBadge": "DE 50+",
       "powerType": "USB 充电",
       "runtime": null,
       "battery": null
@@ -58,6 +59,7 @@
     "keyMetricSource": "商品标题",
     "attributes": {
       "marketsSold": "DE",
+      "amzBadge": null,
       "powerType": "USB 充电",
       "runtime": null,
       "battery": null
@@ -69,12 +71,12 @@
     "series": "HORI",
     "asin": "B0FCF72VJ3",
     "title": "Magicshine Hori1300s Feux de Vélo pour la Nuit, Faisceau Haut et Bas, Phare de Vélo Rechargeable USB-C, Éclairage Avant de Vélo Étanche IPX6 pour Cyclistes Urbains et Routiers",
-    "monthlyUnits": 60,
-    "monthlyRevenue": 3244.8,
-    "price": 54.08,
-    "averagePrice": 54.08,
+    "monthlyUnits": 65,
+    "monthlyRevenue": 3625.15,
+    "price": 64.91,
+    "averagePrice": 64.91,
     "rating": 4.6,
-    "ratingCount": 550,
+    "ratingCount": 551,
     "bsr": 3969,
     "listingDate": "2025-07",
     "fulfillment": "FBA",
@@ -89,7 +91,74 @@
     "keyMetricValue": null,
     "keyMetricSource": null,
     "attributes": {
+      "marketsSold": "FR · ES",
+      "amzBadge": null,
+      "powerType": "USB-C 充电",
+      "runtime": null,
+      "battery": null
+    }
+  },
+  {
+    "brand": "MagicShine",
+    "model": "RN1500 V2.0",
+    "series": "RN",
+    "asin": "B0FJLK5YQ7",
+    "title": "Magicshine RN1500 V2.0 Lampe de vélo Intelligente 1500 lumens, Rechargeable par USB-C IPX7, étanche, éclairage Avant de Cyclisme pour Route, vélo de Montagne Urbain, Conduite de Nuit",
+    "monthlyUnits": 3,
+    "monthlyRevenue": 208.44,
+    "price": 69.48,
+    "averagePrice": 69.48,
+    "rating": 4.4,
+    "ratingCount": 119,
+    "bsr": 14604,
+    "listingDate": "2025-10",
+    "fulfillment": "FBA",
+    "sellerName": "magicshineEU",
+    "variationCount": 1,
+    "qualityScore": 100,
+    "weight": null,
+    "dimensions": null,
+    "badges": [],
+    "amazonUrl": "https://www.amazon.fr/dp/B0FJLK5YQ7",
+    "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/71D4u5TkSBL._AC_US200_.jpg",
+    "keyMetricValue": "1500 lumens",
+    "keyMetricSource": "商品标题",
+    "attributes": {
       "marketsSold": "FR",
+      "amzBadge": null,
+      "powerType": "USB-C 充电",
+      "runtime": null,
+      "battery": null
+    }
+  },
+  {
+    "brand": "MagicShine",
+    "model": "Allty 800 V2.0",
+    "series": "Allty",
+    "asin": "B0FC6Y6X3M",
+    "title": "Magicshine Allty 800 V2.0 Lampe Frontale LED Blanche",
+    "monthlyUnits": 2,
+    "monthlyRevenue": 130.46,
+    "price": 65.23,
+    "averagePrice": 65.23,
+    "rating": 5,
+    "ratingCount": 1,
+    "bsr": 14980,
+    "listingDate": "2025-07",
+    "fulfillment": "FBA",
+    "sellerName": "KM Sport",
+    "variationCount": 1,
+    "qualityScore": null,
+    "weight": null,
+    "dimensions": null,
+    "badges": [],
+    "amazonUrl": "https://www.amazon.fr/dp/B0FC6Y6X3M",
+    "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/51sXIBeyhEL._AC_US200_.jpg",
+    "keyMetricValue": null,
+    "keyMetricSource": null,
+    "attributes": {
+      "marketsSold": "FR",
+      "amzBadge": null,
       "powerType": "USB-C 充电",
       "runtime": null,
       "battery": null
@@ -122,6 +191,7 @@
     "keyMetricSource": null,
     "attributes": {
       "marketsSold": "FR",
+      "amzBadge": null,
       "powerType": "USB-C 充电",
       "runtime": "14.5 h",
       "battery": "900 mAh"
@@ -154,6 +224,7 @@
     "keyMetricSource": "商品标题",
     "attributes": {
       "marketsSold": "FR",
+      "amzBadge": null,
       "powerType": "USB-C 充电",
       "runtime": null,
       "battery": null
@@ -186,6 +257,7 @@
     "keyMetricSource": "商品标题",
     "attributes": {
       "marketsSold": "FR · IT",
+      "amzBadge": null,
       "powerType": "USB-C 充电",
       "runtime": null,
       "battery": null
@@ -218,6 +290,7 @@
     "keyMetricSource": null,
     "attributes": {
       "marketsSold": "FR · ES",
+      "amzBadge": null,
       "powerType": "USB-C 充电",
       "runtime": null,
       "battery": null
@@ -250,6 +323,7 @@
     "keyMetricSource": "商品标题",
     "attributes": {
       "marketsSold": "FR · ES",
+      "amzBadge": null,
       "powerType": "USB-C 充电",
       "runtime": null,
       "battery": null
@@ -282,6 +356,7 @@
     "keyMetricSource": "商品标题",
     "attributes": {
       "marketsSold": "DE · FR · IT · ES",
+      "amzBadge": "DE 400+ · FR 50+ · IT 100+ · ES 50+",
       "powerType": "USB-C 充电",
       "runtime": null,
       "battery": null
@@ -314,6 +389,7 @@
     "keyMetricSource": "商品标题",
     "attributes": {
       "marketsSold": "FR · IT · ES",
+      "amzBadge": "FR 50+ · IT 200+ · ES 100+",
       "powerType": "USB-C 充电",
       "runtime": null,
       "battery": null
@@ -346,6 +422,7 @@
     "keyMetricSource": null,
     "attributes": {
       "marketsSold": "FR · IT · ES",
+      "amzBadge": "FR 50+ · IT 100+ · ES 50+",
       "powerType": "USB-C 充电",
       "runtime": null,
       "battery": null
@@ -378,6 +455,7 @@
     "keyMetricSource": "商品标题",
     "attributes": {
       "marketsSold": "FR · IT · ES",
+      "amzBadge": null,
       "powerType": "USB-C 充电",
       "runtime": null,
       "battery": null
@@ -410,6 +488,40 @@
     "keyMetricSource": "商品标题",
     "attributes": {
       "marketsSold": "FR",
+      "amzBadge": null,
+      "powerType": "USB-C 充电",
+      "runtime": null,
+      "battery": null
+    }
+  },
+  {
+    "brand": "RAVEMEN",
+    "model": "CR1000",
+    "series": "CR",
+    "asin": "B0BZVGW6RK",
+    "title": "RAVEMEN CR1000 Phare Avant pour Vélo, 1000 Lumens Lentille Anti-éblouissement avec Faisceau en T Éclairage Avant Vélo, Conduite de Nuit, Bouton à Distance Filaire, Résistance à l'eau IPX6 USB-C",
+    "monthlyUnits": 2,
+    "monthlyRevenue": 139.98,
+    "price": 69.99,
+    "averagePrice": 69.99,
+    "rating": 4.3,
+    "ratingCount": 56,
+    "bsr": 30920,
+    "listingDate": "2023-06",
+    "fulfillment": "FBA",
+    "sellerName": "RAVEMEN Official",
+    "variationCount": 1,
+    "qualityScore": 100,
+    "weight": null,
+    "dimensions": null,
+    "badges": [],
+    "amazonUrl": "https://www.amazon.fr/dp/B0BZVGW6RK",
+    "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/61rjO5ItVHL._AC_US200_.jpg",
+    "keyMetricValue": "1000 Lumens",
+    "keyMetricSource": "商品标题",
+    "attributes": {
+      "marketsSold": "FR",
+      "amzBadge": null,
       "powerType": "USB-C 充电",
       "runtime": null,
       "battery": null
@@ -442,6 +554,7 @@
     "keyMetricSource": "商品标题",
     "attributes": {
       "marketsSold": "FR",
+      "amzBadge": null,
       "powerType": "USB-C 充电",
       "runtime": null,
       "battery": null
@@ -474,6 +587,7 @@
     "keyMetricSource": "商品标题",
     "attributes": {
       "marketsSold": "FR",
+      "amzBadge": null,
       "powerType": "USB-C 充电",
       "runtime": null,
       "battery": null
@@ -506,6 +620,73 @@
     "keyMetricSource": "商品标题",
     "attributes": {
       "marketsSold": "FR",
+      "amzBadge": null,
+      "powerType": "USB 充电",
+      "runtime": null,
+      "battery": null
+    }
+  },
+  {
+    "brand": "LEZYNE",
+    "model": "Classic Drive XL 700+",
+    "series": "Drive",
+    "asin": "B0C7SF7979",
+    "title": "Lezyne Classic Drive Xl 700+ Front Light 700 Lumens",
+    "monthlyUnits": 4,
+    "monthlyRevenue": 203.96,
+    "price": 50.99,
+    "averagePrice": 50.99,
+    "rating": 4.2,
+    "ratingCount": 10,
+    "bsr": 156215,
+    "listingDate": "2024-02",
+    "fulfillment": "AMZ",
+    "sellerName": "Amazon",
+    "variationCount": 1,
+    "qualityScore": null,
+    "weight": null,
+    "dimensions": null,
+    "badges": [],
+    "amazonUrl": "https://www.amazon.fr/dp/B0C7SF7979",
+    "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/51VLrawh8VL._AC_US200_.jpg",
+    "keyMetricValue": "700 Lumens",
+    "keyMetricSource": "商品标题",
+    "attributes": {
+      "marketsSold": "FR",
+      "amzBadge": null,
+      "powerType": "USB 充电",
+      "runtime": null,
+      "battery": null
+    }
+  },
+  {
+    "brand": "LEZYNE",
+    "model": "Hecto Drive 500 XL",
+    "series": "Drive",
+    "asin": "B07QNLJB6Z",
+    "title": "LEZYNE Luce hecto Drive 500 XL anteriore Nero",
+    "monthlyUnits": 3,
+    "monthlyRevenue": 111,
+    "price": 37,
+    "averagePrice": 37,
+    "rating": 4.3,
+    "ratingCount": 187,
+    "bsr": 11320,
+    "listingDate": "2019-07",
+    "fulfillment": "AMZ",
+    "sellerName": "Amazon",
+    "variationCount": 2,
+    "qualityScore": 76,
+    "weight": null,
+    "dimensions": null,
+    "badges": [],
+    "amazonUrl": "https://www.amazon.fr/dp/B07QNLJB6Z",
+    "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/51ujQzplpzL._AC_US200_.jpg",
+    "keyMetricValue": null,
+    "keyMetricSource": null,
+    "attributes": {
+      "marketsSold": "FR",
+      "amzBadge": null,
       "powerType": "USB 充电",
       "runtime": null,
       "battery": null
@@ -538,7 +719,206 @@
     "keyMetricSource": null,
     "attributes": {
       "marketsSold": "FR",
+      "amzBadge": null,
       "powerType": "USB-C 充电",
+      "runtime": null,
+      "battery": null
+    }
+  },
+  {
+    "brand": "LEZYNE",
+    "model": "Zecto Drive 250+",
+    "series": "Drive",
+    "asin": "B0C7RTTSH1",
+    "title": "Lezyne Zecto Drive 250+ Front Light 250 Lumens",
+    "monthlyUnits": 2,
+    "monthlyRevenue": 69.98,
+    "price": 34.99,
+    "averagePrice": 34.99,
+    "rating": 4.8,
+    "ratingCount": 42,
+    "bsr": 80734,
+    "listingDate": "2024-04",
+    "fulfillment": "AMZ",
+    "sellerName": "Amazon",
+    "variationCount": 1,
+    "qualityScore": null,
+    "weight": null,
+    "dimensions": null,
+    "badges": [],
+    "amazonUrl": "https://www.amazon.fr/dp/B0C7RTTSH1",
+    "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/61VB2orbm-L._AC_US200_.jpg",
+    "keyMetricValue": "250 Lumens",
+    "keyMetricSource": "商品标题",
+    "attributes": {
+      "marketsSold": "FR",
+      "amzBadge": null,
+      "powerType": "USB 充电",
+      "runtime": null,
+      "battery": null
+    }
+  },
+  {
+    "brand": "LEZYNE",
+    "model": "Mini Drive 400",
+    "series": "Drive",
+    "asin": "B07QRYSVPB",
+    "title": "LEZYNE Mini Drive 400 Eclairage vélo/VTT LED Rechargeable USB Mixte Adulte",
+    "monthlyUnits": 1,
+    "monthlyRevenue": 25.99,
+    "price": 25.99,
+    "averagePrice": 25.99,
+    "rating": 4.3,
+    "ratingCount": 193,
+    "bsr": 18225,
+    "listingDate": "2019-12",
+    "fulfillment": "AMZ",
+    "sellerName": "Amazon",
+    "variationCount": 1,
+    "qualityScore": 76,
+    "weight": null,
+    "dimensions": null,
+    "badges": [],
+    "amazonUrl": "https://www.amazon.fr/dp/B07QRYSVPB",
+    "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/617AfsmKWEL._AC_US200_.jpg",
+    "keyMetricValue": null,
+    "keyMetricSource": null,
+    "attributes": {
+      "marketsSold": "FR",
+      "amzBadge": null,
+      "powerType": "USB 充电",
+      "runtime": null,
+      "battery": null
+    }
+  },
+  {
+    "brand": "LEZYNE",
+    "model": "Fusion Drive 600+",
+    "series": "Drive",
+    "asin": "B0C7RSL4BH",
+    "title": "Lezyne Fusion Drive 600+ Front Light 600 Lumens",
+    "monthlyUnits": 1,
+    "monthlyRevenue": 48.99,
+    "price": 48.99,
+    "averagePrice": 48.99,
+    "rating": 4.3,
+    "ratingCount": 16,
+    "bsr": 90842,
+    "listingDate": "2024-04",
+    "fulfillment": "AMZ",
+    "sellerName": "Amazon",
+    "variationCount": 1,
+    "qualityScore": null,
+    "weight": null,
+    "dimensions": null,
+    "badges": [],
+    "amazonUrl": "https://www.amazon.fr/dp/B0C7RSL4BH",
+    "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/616Wp6BQ9sL._AC_US200_.jpg",
+    "keyMetricValue": "600 Lumens",
+    "keyMetricSource": "商品标题",
+    "attributes": {
+      "marketsSold": "FR",
+      "amzBadge": null,
+      "powerType": "USB 充电",
+      "runtime": null,
+      "battery": null
+    }
+  },
+  {
+    "brand": "LEZYNE",
+    "model": "Lite Drive",
+    "series": "Drive",
+    "asin": "B0C7S55N13",
+    "title": "Lezyne Lite Drive Feu avant de vélo LED blanche pour route, montagne, gravier, rechargeable par USB",
+    "monthlyUnits": 1,
+    "monthlyRevenue": 78.3,
+    "price": 78.3,
+    "averagePrice": 78.3,
+    "rating": 4,
+    "ratingCount": 24,
+    "bsr": 75892,
+    "listingDate": "2023-09",
+    "fulfillment": "AMZ",
+    "sellerName": "Amazon",
+    "variationCount": 1,
+    "qualityScore": null,
+    "weight": null,
+    "dimensions": null,
+    "badges": [],
+    "amazonUrl": "https://www.amazon.fr/dp/B0C7S55N13",
+    "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/61LRI7G33oL._AC_US200_.jpg",
+    "keyMetricValue": null,
+    "keyMetricSource": null,
+    "attributes": {
+      "marketsSold": "FR",
+      "amzBadge": null,
+      "powerType": "USB 充电",
+      "runtime": null,
+      "battery": null
+    }
+  },
+  {
+    "brand": "LEZYNE",
+    "model": "Classic Drive 500/+",
+    "series": "Drive",
+    "asin": "B0C7SBXNQR",
+    "title": "Lezyne Classic Drive 500/+ Feu avant de vélo 500 lumens rechargeable par USB",
+    "monthlyUnits": 1,
+    "monthlyRevenue": 54.99,
+    "price": 54.99,
+    "averagePrice": 54.99,
+    "rating": 5,
+    "ratingCount": 1,
+    "bsr": 62677,
+    "listingDate": "2023-10",
+    "fulfillment": "FBM",
+    "sellerName": "Shopping Factory",
+    "variationCount": 1,
+    "qualityScore": null,
+    "weight": null,
+    "dimensions": null,
+    "badges": [],
+    "amazonUrl": "https://www.amazon.fr/dp/B0C7SBXNQR",
+    "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/61BS5a0BQSL._AC_US200_.jpg",
+    "keyMetricValue": "500 lumens",
+    "keyMetricSource": "商品标题",
+    "attributes": {
+      "marketsSold": "FR",
+      "amzBadge": null,
+      "powerType": "USB 充电",
+      "runtime": null,
+      "battery": null
+    }
+  },
+  {
+    "brand": "LEZYNE",
+    "model": "Femto USB",
+    "series": "Femto",
+    "asin": "B07QQTN1TW",
+    "title": "LEZYNE Femto Clé USB avant de vélo rechargeable IPX7 LED Lumière avant avec plusieurs modes solide et flash | Sangle de montage polyvalente en caoutchouc de silicone incluse",
+    "monthlyUnits": 1,
+    "monthlyRevenue": 27.44,
+    "price": 27.44,
+    "averagePrice": 27.44,
+    "rating": 3.8,
+    "ratingCount": 34,
+    "bsr": 80089,
+    "listingDate": "2019-09",
+    "fulfillment": "FBM",
+    "sellerName": "RAREWAVES-FR",
+    "variationCount": 4,
+    "qualityScore": 68,
+    "weight": null,
+    "dimensions": null,
+    "badges": [],
+    "amazonUrl": "https://www.amazon.fr/dp/B07QQTN1TW",
+    "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/51sFw-TiNAL._AC_US200_.jpg",
+    "keyMetricValue": null,
+    "keyMetricSource": null,
+    "attributes": {
+      "marketsSold": "FR",
+      "amzBadge": null,
+      "powerType": "USB 充电",
       "runtime": null,
       "battery": null
     }
@@ -573,6 +953,7 @@
     "keyMetricSource": "商品标题",
     "attributes": {
       "marketsSold": "DE · FR",
+      "amzBadge": "DE 400+",
       "powerType": "USB 充电",
       "runtime": null,
       "battery": null
@@ -605,6 +986,7 @@
     "keyMetricSource": "商品标题",
     "attributes": {
       "marketsSold": "DE",
+      "amzBadge": "DE 100+",
       "powerType": "USB 充电",
       "runtime": null,
       "battery": null
@@ -637,6 +1019,7 @@
     "keyMetricSource": "商品标题",
     "attributes": {
       "marketsSold": "DE",
+      "amzBadge": null,
       "powerType": "USB-C 充电",
       "runtime": null,
       "battery": null
@@ -669,6 +1052,7 @@
     "keyMetricSource": "商品标题",
     "attributes": {
       "marketsSold": "DE",
+      "amzBadge": null,
       "powerType": "USB-C 充电",
       "runtime": null,
       "battery": null
@@ -701,6 +1085,7 @@
     "keyMetricSource": "商品标题",
     "attributes": {
       "marketsSold": "DE",
+      "amzBadge": null,
       "powerType": "USB 充电",
       "runtime": null,
       "battery": null
@@ -733,6 +1118,7 @@
     "keyMetricSource": "商品标题",
     "attributes": {
       "marketsSold": "DE",
+      "amzBadge": "DE 50+",
       "powerType": "USB 充电",
       "runtime": null,
       "battery": null
@@ -765,6 +1151,7 @@
     "keyMetricSource": "商品标题",
     "attributes": {
       "marketsSold": "DE",
+      "amzBadge": null,
       "powerType": "USB 充电",
       "runtime": "20 h",
       "battery": null
@@ -797,6 +1184,40 @@
     "keyMetricSource": "商品标题",
     "attributes": {
       "marketsSold": "IT · FR · ES",
+      "amzBadge": null,
+      "powerType": "USB 充电",
+      "runtime": null,
+      "battery": null
+    }
+  },
+  {
+    "brand": "OLIGHT",
+    "model": "RN1500",
+    "series": "RN",
+    "asin": "B08FDHF928",
+    "title": "OLIGHT RN1500 Lampada Anteriore per Bici, Potenza Massima 1500 Lumen, Batteria con 3 Modalità Fisse e 2 Flash, per Aumentare la Sicurezza di Guida, Antiriflesso USB Ricaricabile per Bici",
+    "monthlyUnits": 42,
+    "monthlyRevenue": 4109.35,
+    "price": 106.61,
+    "averagePrice": 106.61,
+    "rating": 4.6,
+    "ratingCount": 1717,
+    "bsr": 4456,
+    "listingDate": "2020-08",
+    "fulfillment": "AMZ",
+    "sellerName": "Amazon",
+    "variationCount": 1,
+    "qualityScore": 99,
+    "weight": null,
+    "dimensions": null,
+    "badges": [],
+    "amazonUrl": "https://www.amazon.it/dp/B08FDHF928",
+    "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/51SoT2yajSL._AC_US200_.jpg",
+    "keyMetricValue": "1500 Lumen",
+    "keyMetricSource": "商品标题",
+    "attributes": {
+      "marketsSold": "IT · ES",
+      "amzBadge": null,
       "powerType": "USB 充电",
       "runtime": null,
       "battery": null
@@ -829,6 +1250,7 @@
     "keyMetricSource": "商品标题",
     "attributes": {
       "marketsSold": "FR · IT",
+      "amzBadge": null,
       "powerType": "USB 充电",
       "runtime": null,
       "battery": null
@@ -861,40 +1283,9 @@
     "keyMetricSource": "商品标题",
     "attributes": {
       "marketsSold": "FR · IT · ES",
+      "amzBadge": null,
       "powerType": "USB-C 充电",
       "runtime": "7 h",
-      "battery": null
-    }
-  },
-  {
-    "brand": "OLIGHT",
-    "model": "RN 1500",
-    "series": "RN",
-    "asin": "B08FDHF928",
-    "title": "OLIGHT RN 1500 Linterna Delantera de Bicicleta Faro LED de Bici da 1500 Lúmenes Luz Bicicleta Delantera con Batería Recargable, IPX 7, Lámpara de MTB Impermeable y Recargable con USB Cable",
-    "monthlyUnits": 7,
-    "monthlyRevenue": 671.65,
-    "price": 95.95,
-    "averagePrice": 95.95,
-    "rating": 4.6,
-    "ratingCount": 849,
-    "bsr": 36282,
-    "listingDate": "2020-10",
-    "fulfillment": "AMZ",
-    "sellerName": "Amazon",
-    "variationCount": 1,
-    "qualityScore": 99,
-    "weight": null,
-    "dimensions": null,
-    "badges": [],
-    "amazonUrl": "https://www.amazon.es/dp/B08FDHF928",
-    "imageUrl": "https://images-na.ssl-images-amazon.com/images/I/51SoT2yajSL._AC_US200_.jpg",
-    "keyMetricValue": "1500 Lúmenes",
-    "keyMetricSource": "商品标题",
-    "attributes": {
-      "marketsSold": "ES",
-      "powerType": "USB 充电",
-      "runtime": null,
       "battery": null
     }
   },
@@ -925,6 +1316,7 @@
     "keyMetricSource": "商品标题",
     "attributes": {
       "marketsSold": "DE",
+      "amzBadge": null,
       "powerType": "USB 充电",
       "runtime": null,
       "battery": null
@@ -957,6 +1349,7 @@
     "keyMetricSource": "商品标题",
     "attributes": {
       "marketsSold": "ES",
+      "amzBadge": null,
       "powerType": "USB-C 充电",
       "runtime": null,
       "battery": null

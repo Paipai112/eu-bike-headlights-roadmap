@@ -37,13 +37,14 @@ select {
   padding: 48px clamp(20px, 2.5vw, 48px) 72px;
 }
 
+/* 顶部区域不设上限，与全宽路标画板左右对齐，避免宽屏两侧留白 */
 .hero,
 .metrics,
 .estimate-note,
 .filters {
   margin-left: auto;
   margin-right: auto;
-  max-width: 1400px;
+  max-width: none;
 }
 
 .hero {
@@ -54,7 +55,7 @@ select {
 }
 
 .hero__copy {
-  max-width: 860px;
+  max-width: none;
 }
 
 .eyebrow {
@@ -85,7 +86,7 @@ h1 {
   font-size: 17px;
   line-height: 1.75;
   margin-bottom: 0;
-  max-width: 720px;
+  max-width: 1280px;
 }
 
 .snapshot {
@@ -349,7 +350,14 @@ h1 {
 }
 
 .roadmap-topbar__content {
+  overflow: hidden;
   position: relative;
+}
+
+/* 内层缩放容器：字号随栏高同步缩放（与画板同一套 transform 方案） */
+.roadmap-topbar__scaler {
+  position: relative;
+  transform-origin: 0 0;
 }
 
 .topbar-brand-boundary {

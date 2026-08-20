@@ -23,7 +23,7 @@ export const categoryConfig = {
 
   // 数据口径说明（页面上方黄色提示条，措辞如实、不夸大）
   dataNote:
-    "销量与销售额为卖家精灵基于 2026-07 月度商品快照的估算值，并非 Amazon 官方实销数据。四国站点各自 listing，同一产品按 ASIN/品牌型号合并；BSR 取四站最优。补充品牌依据：SIGMA/Trelock/OLIGHT 为欧洲亚马逊渠道实际在售、前灯品类较全的知名品牌；CatEye 经查证基本不在亚马逊欧洲渠道铺货（德/法站以车铃、码表与零星旧款为主），未收录。已按规则排除：SIGMA Aura 30（干电池）、SIGMA Buster 全系（头盔灯）、SIGMA Aura 100（仅随套装销售，无单品 listing）、Trelock Lighthammer E-Bike 系、AXA/Büchel/nean 等摩电机（Dynamo）供电款。",
+    "销量与销售额为卖家精灵基于 2026-07 月度商品快照的估算值，并非 Amazon 官方实销数据——亚马逊不公开真实销量，卖家精灵亦无真实销量口径（asin_detail 的销量字段为空）。2026-08-19 实测：查询 2026-08 当月返回与 2026-07 完全相同的快照，故 2026-07 已是卖家精灵当前可提供的最近月份。抽屉内\"亚马逊近一月购买\"为亚马逊商品页官方\"X+ bought in past month\"徽章抓取（滚动 30 天下限值，抓取于 2026 年 6 月底至 7 月底），是最接近真实销量的公开口径。四国站点各自 listing，同一产品按 ASIN/品牌型号合并；BSR 取四站最优。补充品牌依据：SIGMA/Trelock/OLIGHT 为欧洲亚马逊渠道实际在售、前灯品类较全的知名品牌；CatEye 经查证基本不在亚马逊欧洲渠道铺货（德/法站以车铃、码表与零星旧款为主），未收录。已按规则排除：SIGMA Aura 30（干电池）、SIGMA Buster 全系（头盔灯）、SIGMA Aura 100（仅随套装销售）、Trelock Lighthammer E-Bike 系、AXA/Büchel/nean 等摩电机（Dynamo）供电款、当月 0 销量长尾型号。",
 
   // 卡片关键字段：每个品类最值得看的一个规格指标。
   // 欧洲德规（StVZO）市场以 Lux 标注亮度，与流明不可换算，故按原厂标注原样展示。
@@ -35,6 +35,7 @@ export const categoryConfig = {
   // 抽屉详情字段：品类专属属性表，值来自 products.json 的 attributes 对象。
   drawerFields: [
     { key: "marketsSold", label: "在售站点", wide: true },
+    { key: "amzBadge", label: "亚马逊近一月购买（页面口径）", wide: true },
     { key: "powerType", label: "供电方式" },
     { key: "runtime", label: "最高亮度续航" },
     { key: "battery", label: "电池容量", wide: true },

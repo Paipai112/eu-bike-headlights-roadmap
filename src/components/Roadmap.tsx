@@ -24,8 +24,10 @@ interface RoadmapProps {
   onProductAction: (product: Product) => void;
 }
 
-const BRAND_HEADER_HEIGHT = 64;
-const LANE_LABEL_HEIGHT = 18;
+// 品牌栏内容（色标 + h3 + p + 上下 padding）约 66px，高度须留出余量，
+// 否则浏览器页面放大时分数像素取整会把文字顶部/底部裁掉。
+const BRAND_HEADER_HEIGHT = 72;
+const LANE_LABEL_HEIGHT = 20;
 const HEADER_HEIGHT = BRAND_HEADER_HEIGHT + LANE_LABEL_HEIGHT;
 const CANVAS_BOTTOM_PADDING = 32;
 const AXIS_LINE_BOTTOM_PADDING = 28;
@@ -196,60 +198,72 @@ export function Roadmap({
           data-testid="roadmap-topbar"
           ref={topbarRef}
         >
+          {/* 外层按缩放后尺寸占位（驱动横向滚动同步），内层整体 transform 缩放，
+              使字号与栏高同步缩放——避免"栏高随缩放变、字号不变"导致的裁切。 */}
           <div
             className="roadmap-topbar__content"
             style={{ width: scaledPlotWidth, height: HEADER_HEIGHT * zoom }}
           >
-            {layout.brandRegions.map((region) => (
-              <div
-                className="topbar-brand-boundary"
-                key={`boundary-${region.brand}`}
-                style={{ left: region.x * zoom, height: HEADER_HEIGHT * zoom }}
-              />
-            ))}
-            {layout.brandRegions.map((region) => {
-              const brandProducts = products.filter(
-                (product) => product.brand === region.brand,
-              );
-              const brandPrices = brandProducts.map((product) => product.price);
-              return (
+            <div
+              className="roadmap-topbar__scaler"
+              style={{
+                width: plotWidth,
+                height: HEADER_HEIGHT,
+                transform: `scale(${zoom})`,
+                transformOrigin: "0 0",
+              }}
+            >
+              {layout.brandRegions.map((region) => (
                 <div
-                  className="topbar-brand"
-                  data-testid={`brand-region-${region.brand}`}
-                  key={region.brand}
+                  className="topbar-brand-boundary"
+                  key={`boundary-${region.brand}`}
+                  style={{ left: region.x, height: HEADER_HEIGHT }}
+                />
+              ))}
+              {layout.brandRegions.map((region) => {
+                const brandProducts = products.filter(
+                  (product) => product.brand === region.brand,
+                );
+                const brandPrices = brandProducts.map((product) => product.price);
+                return (
+                  <div
+                    className="topbar-brand"
+                    data-testid={`brand-region-${region.brand}`}
+                    key={region.brand}
+                    style={{
+                      left: region.x,
+                      width: region.width,
+                      height: BRAND_HEADER_HEIGHT,
+                      "--brand-color": brandColor(region.brand),
+                    }}
+                  >
+                    <span className="brand-column__mark" aria-hidden="true" />
+                    <div>
+                      <h3>{region.brand}</h3>
+                      <p>
+                        {brandProducts.length} 款 · {region.laneCount} 条泳道 · {categoryConfig.currencySymbol}{Math.min(...brandPrices).toFixed(0)}–{categoryConfig.currencySymbol}{Math.max(...brandPrices).toFixed(0)}
+                      </p>
+                    </div>
+                  </div>
+                );
+              })}
+              {layout.laneLabels.map((lane) => (
+                <div
+                  className="series-lane-label"
+                  data-brand={lane.brand}
+                  data-testid="series-lane-label"
+                  key={`${lane.brand}-${lane.laneIndex}`}
                   style={{
-                    left: region.x * zoom,
-                    width: region.width * zoom,
-                    height: BRAND_HEADER_HEIGHT * zoom,
-                    "--brand-color": brandColor(region.brand),
+                    left: lane.x,
+                    width: lane.width,
+                    top: BRAND_HEADER_HEIGHT,
+                    height: LANE_LABEL_HEIGHT,
                   }}
                 >
-                  <span className="brand-column__mark" aria-hidden="true" />
-                  <div>
-                    <h3>{region.brand}</h3>
-                    <p>
-                      {brandProducts.length} 款 · {region.laneCount} 条泳道 · {categoryConfig.currencySymbol}{Math.min(...brandPrices).toFixed(0)}–{categoryConfig.currencySymbol}{Math.max(...brandPrices).toFixed(0)}
-                    </p>
-                  </div>
+                  {lane.series.join(" · ")}
                 </div>
-              );
-            })}
-            {layout.laneLabels.map((lane) => (
-              <div
-                className="series-lane-label"
-                data-brand={lane.brand}
-                data-testid="series-lane-label"
-                key={`${lane.brand}-${lane.laneIndex}`}
-                style={{
-                  left: lane.x * zoom,
-                  width: lane.width * zoom,
-                  top: BRAND_HEADER_HEIGHT * zoom,
-                  height: LANE_LABEL_HEIGHT * zoom,
-                }}
-              >
-                {lane.series.join(" · ")}
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
         <div aria-hidden="true" className="roadmap-corner roadmap-corner--right" />

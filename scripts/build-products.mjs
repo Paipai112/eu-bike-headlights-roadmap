@@ -5,13 +5,19 @@ import { fileURLToPath } from "node:url";
 // 欧元四站(DE/FR/IT/ES)自行车单品前灯 products.json 生成器。
 // 数据来源：卖家精灵 MCP product_research / competitor_lookup，2026-07 月度估算（EUR）。
 //
+// 关于"真实销量"（2026-08-19 实测查证）：
+//   - 卖家精灵所有销量/销售额均为模型估算口径（亚马逊不公开真实销量，第三方无从获得）
+//   - month=202608（当月）查询实测返回与 202607 完全相同的快照 → 2026-07 为最近可用月份
+//   - amzBadge 取自亚马逊商品页官方"近一月购买 X+"徽章抓取（amzUnit，滚动 30 天下限值，
+//     抓取时点 2026-06-30 至 07-31 不等）——最接近真实的公开口径，作为抽屉第二参考
+//
 // 收录范围（用户确认，2026-08-19 第三轮调整）：
 //   - 品牌白名单 6 家：用户指定 MagicShine / RAVEMEN / LEZYNE
 //     + 补充品牌 SIGMA / Trelock / OLIGHT（欧洲亚马逊渠道实际在售、前灯品类全的知名品牌；
 //       CatEye 经查证基本不在亚马逊欧洲渠道铺货，未收录）
 //   - 仅收自带电池、可 USB 充电的单品前灯
 //   - 排除：E-bike 前灯、摩电机（Dynamo）/干电池供电、前后灯套装、纯尾灯、
-//     头盔灯（SIGMA Buster 全系为 Helmlicht）、配件
+//     头盔灯（SIGMA Buster 全系为 Helmlicht）、配件；0 销量的长尾型号不入图
 //
 // 合并口径（用户确认）：
 //   - 四国各自 listing，同一产品按 ASIN/品牌型号合并为一条
@@ -25,8 +31,9 @@ import { fileURLToPath } from "node:url";
 const IMG = (id) => `https://images-na.ssl-images-amazon.com/images/I/${id}._AC_US200_.jpg`;
 
 // markets: 每站 [units, revenue, price, rating, ratingsCount]（null = 未在该站上架）
+// amzBadge: 亚马逊商品页"近一月购买 X+"徽章（amzUnit 抓取），按站拼接；null = 无徽章数据
 const rows = [
-  // ── MagicShine（8 款）：德站 StVZO 线 + 法站官方店非德规线 ──────
+  // ── MagicShine（10 款）：德站 StVZO 线 + 法站官方店非德规线 ──────
   {
     asin: "B0FR3MV6GR", brand: "MagicShine", model: "ZX150", series: "ZX",
     title: "Magicshine ZX150 | LED Fahrradlicht 150 Lux | StVZO zugelassenes, akkubetriebenes Vorderlicht mit 2 Leuchtmodi | 230 m Leuchtweite, IPX6 Wasserdichtes Fahrradlichter für Kinder und Erwachsene Schwarz",
@@ -36,6 +43,7 @@ const rows = [
     image: "61e-pRBSXDL", domain: "de",
     keyMetricValue: "150 Lux", keyMetricSource: "商品标题",
     attributes: { powerType: "USB 充电", runtime: null, battery: null },
+    amzBadge: "DE 50+",
   },
   {
     asin: "B0BJKBKWMV", brand: "MagicShine", model: "ZX Pro", series: "ZX",
@@ -46,16 +54,40 @@ const rows = [
     image: "61WcenSxT5L", domain: "de",
     keyMetricValue: "100 Lux", keyMetricSource: "商品标题",
     attributes: { powerType: "USB 充电", runtime: null, battery: null },
+    amzBadge: null,
   },
   {
     asin: "B0FCF72VJ3", brand: "MagicShine", model: "Hori1300s", series: "HORI",
     title: "Magicshine Hori1300s Feux de Vélo pour la Nuit, Faisceau Haut et Bas, Phare de Vélo Rechargeable USB-C, Éclairage Avant de Vélo Étanche IPX6 pour Cyclistes Urbains et Routiers",
-    markets: { FR: [60, 3244.8, 54.08, 4.6, 550] },
+    markets: { FR: [60, 3244.8, 54.08, 4.6, 550], ES: [5, 380.35, 75.73, 5.0, 1] },
     bsr: 3969, listingDate: "2025-07", fulfillment: "FBA", sellerName: "magicshineEU",
     variationCount: 2, qualityScore: 87, weight: null, dimensions: null, badges: [],
     image: "61Tv1nwCMwL", domain: "fr",
     keyMetricValue: null, keyMetricSource: null,
     attributes: { powerType: "USB-C 充电", runtime: null, battery: null },
+    amzBadge: null,
+  },
+  {
+    asin: "B0FJLK5YQ7", brand: "MagicShine", model: "RN1500 V2.0", series: "RN",
+    title: "Magicshine RN1500 V2.0 Lampe de vélo Intelligente 1500 lumens, Rechargeable par USB-C IPX7, étanche, éclairage Avant de Cyclisme pour Route, vélo de Montagne Urbain, Conduite de Nuit",
+    markets: { FR: [3, 208.44, 69.48, 4.4, 119] },
+    bsr: 14604, listingDate: "2025-10", fulfillment: "FBA", sellerName: "magicshineEU",
+    variationCount: 1, qualityScore: 100, weight: null, dimensions: null, badges: [],
+    image: "71D4u5TkSBL", domain: "fr",
+    keyMetricValue: "1500 lumens", keyMetricSource: "商品标题",
+    attributes: { powerType: "USB-C 充电", runtime: null, battery: null },
+    amzBadge: null,
+  },
+  {
+    asin: "B0FC6Y6X3M", brand: "MagicShine", model: "Allty 800 V2.0", series: "Allty",
+    title: "Magicshine Allty 800 V2.0 Lampe Frontale LED Blanche",
+    markets: { FR: [2, 130.46, 65.23, 5.0, 1] },
+    bsr: 14980, listingDate: "2025-07", fulfillment: "FBA", sellerName: "KM Sport",
+    variationCount: 1, qualityScore: null, weight: null, dimensions: null, badges: [],
+    image: "51sXIBeyhEL", domain: "fr",
+    keyMetricValue: null, keyMetricSource: null,
+    attributes: { powerType: "USB-C 充电", runtime: null, battery: null },
+    amzBadge: null,
   },
   {
     asin: "B0GZN3NM7L", brand: "MagicShine", model: "URBO FL", series: "URBO",
@@ -66,6 +98,7 @@ const rows = [
     image: "71EWfL3xMRL", domain: "fr",
     keyMetricValue: null, keyMetricSource: null,
     attributes: { powerType: "USB-C 充电", runtime: "14.5 h", battery: "900 mAh" },
+    amzBadge: null,
   },
   {
     asin: "B09PHDT7DM", brand: "MagicShine", model: "RN 1200", series: "RN",
@@ -76,6 +109,7 @@ const rows = [
     image: "61Oz8jjCefL", domain: "fr",
     keyMetricValue: "1200 lumens", keyMetricSource: "商品标题",
     attributes: { powerType: "USB-C 充电", runtime: null, battery: null },
+    amzBadge: null,
   },
   {
     asin: "B0FBWHT2TP", brand: "MagicShine", model: "Hori900", series: "HORI",
@@ -86,6 +120,7 @@ const rows = [
     image: "61uWQXd31XL", domain: "fr",
     keyMetricValue: "900 lumens", keyMetricSource: "商品标题",
     attributes: { powerType: "USB-C 充电", runtime: null, battery: null },
+    amzBadge: null,
   },
   {
     asin: "B0CNDDDMFX", brand: "MagicShine", model: "Evo 1700", series: "EVO",
@@ -96,6 +131,7 @@ const rows = [
     image: "61ZjeKZVW8L", domain: "es",
     keyMetricValue: null, keyMetricSource: null,
     attributes: { powerType: "USB-C 充电", runtime: null, battery: null },
+    amzBadge: null,
   },
   {
     asin: "B0H2HNW5L9", brand: "MagicShine", model: "EVO 1700 Pro", series: "EVO",
@@ -106,9 +142,10 @@ const rows = [
     image: "71hZAjyJiCL", domain: "es",
     keyMetricValue: "1700 lúmenes", keyMetricSource: "商品标题",
     attributes: { powerType: "USB-C 充电", runtime: null, battery: null },
+    amzBadge: null,
   },
 
-  // ── RAVEMEN（7 款）：官方店同一 ASIN 覆盖 FR/IT/ES；FR500 另有德站独立 ASIN ──
+  // ── RAVEMEN（8 款）：官方店同一 ASIN 覆盖 FR/IT/ES；FR500 另有德站独立 ASIN ──
   {
     asin: "B0GHND3DCV", brand: "RAVEMEN", model: "FR500", series: "FR",
     title: "RAVEMEN FR500 500 Lumens Phare avant pour vélo, compatible avec Garmin/Wahoo Cycloordinateur, jour et nuit visible, 6 modes pour vélo sur route et urbain IPX6",
@@ -118,6 +155,7 @@ const rows = [
     image: "61FjQhsccFL", domain: "de",
     keyMetricValue: "500 Lumens", keyMetricSource: "商品标题",
     attributes: { powerType: "USB-C 充电", runtime: null, battery: null },
+    amzBadge: "DE 400+ · FR 50+ · IT 100+ · ES 50+",
   },
   {
     asin: "B0GSVY7723", brand: "RAVEMEN", model: "FR1100 SE", series: "FR",
@@ -128,6 +166,7 @@ const rows = [
     image: "71+HrpjnavL", domain: "it",
     keyMetricValue: "1100 Lumens", keyMetricSource: "商品标题",
     attributes: { powerType: "USB-C 充电", runtime: null, battery: null },
+    amzBadge: "FR 50+ · IT 200+ · ES 100+",
   },
   {
     asin: "B0BXCKBVVP", brand: "RAVEMEN", model: "FR160", series: "FR",
@@ -138,6 +177,7 @@ const rows = [
     image: "61x+IhMr-gL", domain: "it",
     keyMetricValue: null, keyMetricSource: null,
     attributes: { powerType: "USB-C 充电", runtime: null, battery: null },
+    amzBadge: "FR 50+ · IT 100+ · ES 50+",
   },
   {
     asin: "B0D1C9N4W5", brand: "RAVEMEN", model: "FR300", series: "FR",
@@ -148,6 +188,7 @@ const rows = [
     image: "61b3fxzkw-L", domain: "it",
     keyMetricValue: "300 Lumens", keyMetricSource: "商品标题",
     attributes: { powerType: "USB-C 充电", runtime: null, battery: null },
+    amzBadge: null,
   },
   {
     asin: "B0FPQ918GK", brand: "RAVEMEN", model: "FR1000", series: "FR",
@@ -158,6 +199,18 @@ const rows = [
     image: "61wQFBOjGWL", domain: "fr",
     keyMetricValue: "1000 Lumens", keyMetricSource: "商品标题",
     attributes: { powerType: "USB-C 充电", runtime: null, battery: null },
+    amzBadge: null,
+  },
+  {
+    asin: "B0BZVGW6RK", brand: "RAVEMEN", model: "CR1000", series: "CR",
+    title: "RAVEMEN CR1000 Phare Avant pour Vélo, 1000 Lumens Lentille Anti-éblouissement avec Faisceau en T Éclairage Avant Vélo, Conduite de Nuit, Bouton à Distance Filaire, Résistance à l'eau IPX6 USB-C",
+    markets: { FR: [2, 139.98, 69.99, 4.3, 56] },
+    bsr: 30920, listingDate: "2023-06", fulfillment: "FBA", sellerName: "RAVEMEN Official",
+    variationCount: 1, qualityScore: 100, weight: null, dimensions: null, badges: [],
+    image: "61rjO5ItVHL", domain: "fr",
+    keyMetricValue: "1000 Lumens", keyMetricSource: "商品标题",
+    attributes: { powerType: "USB-C 充电", runtime: null, battery: null },
+    amzBadge: null,
   },
   {
     asin: "B0D5B5DW48", brand: "RAVEMEN", model: "K1800", series: "K",
@@ -168,6 +221,7 @@ const rows = [
     image: "61lWE7OOntL", domain: "fr",
     keyMetricValue: "1800 Lumens", keyMetricSource: "商品标题",
     attributes: { powerType: "USB-C 充电", runtime: null, battery: null },
+    amzBadge: null,
   },
   {
     asin: "B0CF1WTCKF", brand: "RAVEMEN", model: "PR2400", series: "PR",
@@ -178,9 +232,10 @@ const rows = [
     image: "618UxDK8mdL", domain: "fr",
     keyMetricValue: "2400 Lumen", keyMetricSource: "商品标题",
     attributes: { powerType: "USB-C 充电", runtime: null, battery: null },
+    amzBadge: null,
   },
 
-  // ── LEZYNE（2 款）：德/意/西站无前灯在售（仅泵/工具），法站为亚马逊自营小量铺货 ──
+  // ── LEZYNE（10 款）：德/意/西站无前灯在售（仅泵/工具），法站为亚马逊自营铺货线 ──
   {
     asin: "B0C7SGPNY8", brand: "LEZYNE", model: "Micro Drive 800+", series: "Drive",
     title: "Lezyne Micro Drive 800+ Front Light 800 Lumens",
@@ -190,6 +245,29 @@ const rows = [
     image: "61qHz2s5O7L", domain: "fr",
     keyMetricValue: "800 Lumens", keyMetricSource: "商品标题",
     attributes: { powerType: "USB 充电", runtime: null, battery: null },
+    amzBadge: null,
+  },
+  {
+    asin: "B0C7SF7979", brand: "LEZYNE", model: "Classic Drive XL 700+", series: "Drive",
+    title: "Lezyne Classic Drive Xl 700+ Front Light 700 Lumens",
+    markets: { FR: [4, 203.96, 50.99, 4.2, 10] },
+    bsr: 156215, listingDate: "2024-02", fulfillment: "AMZ", sellerName: "Amazon",
+    variationCount: 1, qualityScore: null, weight: null, dimensions: null, badges: [],
+    image: "51VLrawh8VL", domain: "fr",
+    keyMetricValue: "700 Lumens", keyMetricSource: "商品标题",
+    attributes: { powerType: "USB 充电", runtime: null, battery: null },
+    amzBadge: null,
+  },
+  {
+    asin: "B07QNLJB6Z", brand: "LEZYNE", model: "Hecto Drive 500 XL", series: "Drive",
+    title: "LEZYNE Luce hecto Drive 500 XL anteriore Nero",
+    markets: { FR: [3, 111.0, 37.0, 4.3, 187] },
+    bsr: 11320, listingDate: "2019-07", fulfillment: "AMZ", sellerName: "Amazon",
+    variationCount: 2, qualityScore: 76, weight: null, dimensions: null, badges: [],
+    image: "51ujQzplpzL", domain: "fr",
+    keyMetricValue: null, keyMetricSource: null,
+    attributes: { powerType: "USB 充电", runtime: null, battery: null },
+    amzBadge: null,
   },
   {
     asin: "B0CJ5C4WCC", brand: "LEZYNE", model: "Super Drive 1800+", series: "Drive",
@@ -200,6 +278,73 @@ const rows = [
     image: "61CWIb0phtL", domain: "fr",
     keyMetricValue: null, keyMetricSource: null,
     attributes: { powerType: "USB-C 充电", runtime: null, battery: null },
+    amzBadge: null,
+  },
+  {
+    asin: "B0C7RTTSH1", brand: "LEZYNE", model: "Zecto Drive 250+", series: "Drive",
+    title: "Lezyne Zecto Drive 250+ Front Light 250 Lumens",
+    markets: { FR: [2, 69.98, 34.99, 4.8, 42] },
+    bsr: 80734, listingDate: "2024-04", fulfillment: "AMZ", sellerName: "Amazon",
+    variationCount: 1, qualityScore: null, weight: null, dimensions: null, badges: [],
+    image: "61VB2orbm-L", domain: "fr",
+    keyMetricValue: "250 Lumens", keyMetricSource: "商品标题",
+    attributes: { powerType: "USB 充电", runtime: null, battery: null },
+    amzBadge: null,
+  },
+  {
+    asin: "B07QRYSVPB", brand: "LEZYNE", model: "Mini Drive 400", series: "Drive",
+    title: "LEZYNE Mini Drive 400 Eclairage vélo/VTT LED Rechargeable USB Mixte Adulte",
+    markets: { FR: [1, 25.99, 25.99, 4.3, 193] },
+    bsr: 18225, listingDate: "2019-12", fulfillment: "AMZ", sellerName: "Amazon",
+    variationCount: 1, qualityScore: 76, weight: null, dimensions: null, badges: [],
+    image: "617AfsmKWEL", domain: "fr",
+    keyMetricValue: null, keyMetricSource: null,
+    attributes: { powerType: "USB 充电", runtime: null, battery: null },
+    amzBadge: null,
+  },
+  {
+    asin: "B0C7RSL4BH", brand: "LEZYNE", model: "Fusion Drive 600+", series: "Drive",
+    title: "Lezyne Fusion Drive 600+ Front Light 600 Lumens",
+    markets: { FR: [1, 48.99, 48.99, 4.3, 16] },
+    bsr: 90842, listingDate: "2024-04", fulfillment: "AMZ", sellerName: "Amazon",
+    variationCount: 1, qualityScore: null, weight: null, dimensions: null, badges: [],
+    image: "616Wp6BQ9sL", domain: "fr",
+    keyMetricValue: "600 Lumens", keyMetricSource: "商品标题",
+    attributes: { powerType: "USB 充电", runtime: null, battery: null },
+    amzBadge: null,
+  },
+  {
+    asin: "B0C7S55N13", brand: "LEZYNE", model: "Lite Drive", series: "Drive",
+    title: "Lezyne Lite Drive Feu avant de vélo LED blanche pour route, montagne, gravier, rechargeable par USB",
+    markets: { FR: [1, 78.3, 78.3, 4.0, 24] },
+    bsr: 75892, listingDate: "2023-09", fulfillment: "AMZ", sellerName: "Amazon",
+    variationCount: 1, qualityScore: null, weight: null, dimensions: null, badges: [],
+    image: "61LRI7G33oL", domain: "fr",
+    keyMetricValue: null, keyMetricSource: null,
+    attributes: { powerType: "USB 充电", runtime: null, battery: null },
+    amzBadge: null,
+  },
+  {
+    asin: "B0C7SBXNQR", brand: "LEZYNE", model: "Classic Drive 500/+", series: "Drive",
+    title: "Lezyne Classic Drive 500/+ Feu avant de vélo 500 lumens rechargeable par USB",
+    markets: { FR: [1, 54.99, 54.99, 5.0, 1] },
+    bsr: 62677, listingDate: "2023-10", fulfillment: "FBM", sellerName: "Shopping Factory",
+    variationCount: 1, qualityScore: null, weight: null, dimensions: null, badges: [],
+    image: "61BS5a0BQSL", domain: "fr",
+    keyMetricValue: "500 lumens", keyMetricSource: "商品标题",
+    attributes: { powerType: "USB 充电", runtime: null, battery: null },
+    amzBadge: null,
+  },
+  {
+    asin: "B07QQTN1TW", brand: "LEZYNE", model: "Femto USB", series: "Femto",
+    title: "LEZYNE Femto Clé USB avant de vélo rechargeable IPX7 LED Lumière avant avec plusieurs modes solide et flash | Sangle de montage polyvalente en caoutchouc de silicone incluse",
+    markets: { FR: [1, 27.44, 27.44, 3.8, 34] },
+    bsr: 80089, listingDate: "2019-09", fulfillment: "FBM", sellerName: "RAREWAVES-FR",
+    variationCount: 4, qualityScore: 68, weight: null, dimensions: null, badges: [],
+    image: "51sFw-TiNAL", domain: "fr",
+    keyMetricValue: null, keyMetricSource: null,
+    attributes: { powerType: "USB 充电", runtime: null, battery: null },
+    amzBadge: null,
   },
 
   // ── SIGMA（5 款）：德站 StVZO 头部品牌，自带电池 Aura 线；法/意/西无前灯单品 ──
@@ -214,6 +359,7 @@ const rows = [
     image: "61D3Dfop9RL", domain: "de",
     keyMetricValue: "80 Lux", keyMetricSource: "商品标题",
     attributes: { powerType: "USB 充电", runtime: null, battery: null },
+    amzBadge: "DE 400+",
   },
   {
     asin: "B07GTN4YNG", brand: "SIGMA", model: "Aura 60 USB", series: "Aura",
@@ -224,6 +370,7 @@ const rows = [
     image: "510iUtiM1DL", domain: "de",
     keyMetricValue: "60 LUX", keyMetricSource: "商品标题",
     attributes: { powerType: "USB 充电", runtime: null, battery: null },
+    amzBadge: "DE 100+",
   },
   {
     asin: "B0FMY4VQKF", brand: "SIGMA", model: "Aura 50", series: "Aura",
@@ -234,6 +381,7 @@ const rows = [
     image: "71tNJTv+T7L", domain: "de",
     keyMetricValue: "50 LUX", keyMetricSource: "商品标题",
     attributes: { powerType: "USB-C 充电", runtime: null, battery: null },
+    amzBadge: null,
   },
   {
     asin: "B0FMY2JNRZ", brand: "SIGMA", model: "Aura 40", series: "Aura",
@@ -244,6 +392,7 @@ const rows = [
     image: "71nzHcExggL", domain: "de",
     keyMetricValue: "40 LUX", keyMetricSource: "商品标题",
     attributes: { powerType: "USB-C 充电", runtime: null, battery: null },
+    amzBadge: null,
   },
   {
     asin: "B0017H98GW", brand: "SIGMA", model: "Aura 35", series: "Aura",
@@ -254,6 +403,7 @@ const rows = [
     image: "71LQmBfYseL", domain: "de",
     keyMetricValue: "35 LUX", keyMetricSource: "商品标题",
     attributes: { powerType: "USB 充电", runtime: null, battery: null },
+    amzBadge: null,
   },
 
   // ── Trelock（2 款）：德系老牌，亚马逊渠道灯只剩两款；E-Bike 系/套装/摩电机款排除 ──
@@ -266,6 +416,7 @@ const rows = [
     image: "719uwDGFJRL", domain: "de",
     keyMetricValue: "100 Lux", keyMetricSource: "商品标题",
     attributes: { powerType: "USB 充电", runtime: null, battery: null },
+    amzBadge: "DE 50+",
   },
   {
     asin: "B0DZ2BT2ST", brand: "Trelock", model: "LS 480 Lighthammer", series: "LS",
@@ -276,6 +427,7 @@ const rows = [
     image: "61mLEQU1PcL", domain: "de",
     keyMetricValue: "80 LUX", keyMetricSource: "商品标题",
     attributes: { powerType: "USB 充电", runtime: "20 h", battery: null },
+    amzBadge: null,
   },
 
   // ── OLIGHT（6 款）：RN 线法/意/西同 ASIN 跨国销售；德站仅第三方在售的 ZX Pro ──
@@ -288,6 +440,18 @@ const rows = [
     image: "61WcyWjJSLL", domain: "it",
     keyMetricValue: "2000 Lumen", keyMetricSource: "商品标题",
     attributes: { powerType: "USB 充电", runtime: null, battery: null },
+    amzBadge: null,
+  },
+  {
+    asin: "B08FDHF928", brand: "OLIGHT", model: "RN1500", series: "RN",
+    title: "OLIGHT RN1500 Lampada Anteriore per Bici, Potenza Massima 1500 Lumen, Batteria con 3 Modalità Fisse e 2 Flash, per Aumentare la Sicurezza di Guida, Antiriflesso USB Ricaricabile per Bici",
+    markets: { IT: [35, 3437.7, 117.26, 4.6, 868], ES: [7, 671.65, 95.95, 4.6, 849] },
+    bsr: 4456, listingDate: "2020-08", fulfillment: "AMZ", sellerName: "Amazon",
+    variationCount: 1, qualityScore: 99, weight: null, dimensions: null, badges: [],
+    image: "51SoT2yajSL", domain: "it",
+    keyMetricValue: "1500 Lumen", keyMetricSource: "商品标题",
+    attributes: { powerType: "USB 充电", runtime: null, battery: null },
+    amzBadge: null,
   },
   {
     asin: "B08GKH9NYV", brand: "OLIGHT", model: "RN 800", series: "RN",
@@ -298,6 +462,7 @@ const rows = [
     image: "61pzo18y5AL", domain: "fr",
     keyMetricValue: "800 Lumens", keyMetricSource: "商品标题",
     attributes: { powerType: "USB 充电", runtime: null, battery: null },
+    amzBadge: null,
   },
   {
     asin: "B08HGJ9LQX", brand: "OLIGHT", model: "RN 400", series: "RN",
@@ -308,16 +473,7 @@ const rows = [
     image: "61TAoYBuC-L", domain: "fr",
     keyMetricValue: "400 Lumens", keyMetricSource: "商品标题",
     attributes: { powerType: "USB-C 充电", runtime: "7 h", battery: null },
-  },
-  {
-    asin: "B08FDHF928", brand: "OLIGHT", model: "RN 1500", series: "RN",
-    title: "OLIGHT RN 1500 Linterna Delantera de Bicicleta Faro LED de Bici da 1500 Lúmenes Luz Bicicleta Delantera con Batería Recargable, IPX 7, Lámpara de MTB Impermeable y Recargable con USB Cable",
-    markets: { ES: [7, 671.65, 95.95, 4.6, 849] },
-    bsr: 36282, listingDate: "2020-10", fulfillment: "AMZ", sellerName: "Amazon",
-    variationCount: 1, qualityScore: 99, weight: null, dimensions: null, badges: [],
-    image: "51SoT2yajSL", domain: "es",
-    keyMetricValue: "1500 Lúmenes", keyMetricSource: "商品标题",
-    attributes: { powerType: "USB 充电", runtime: null, battery: null },
+    amzBadge: null,
   },
   {
     asin: "B0B9G8NTR5", brand: "OLIGHT", model: "ZX Pro", series: "ZX",
@@ -328,6 +484,7 @@ const rows = [
     image: "61v1FGh3GqL", domain: "de",
     keyMetricValue: "100 Lux", keyMetricSource: "商品标题",
     attributes: { powerType: "USB 充电", runtime: null, battery: null },
+    amzBadge: null,
   },
   {
     asin: "B0DZWY1TRF", brand: "OLIGHT", model: "Goshawk 1600", series: "Goshawk",
@@ -338,6 +495,7 @@ const rows = [
     image: "61Q6T3pdLmL", domain: "es",
     keyMetricValue: "1600 lúmenes", keyMetricSource: "商品标题",
     attributes: { powerType: "USB-C 充电", runtime: null, battery: null },
+    amzBadge: null,
   },
 ];
 
@@ -390,6 +548,7 @@ const products = rows.map((row) => ({
   keyMetricSource: row.keyMetricSource,
   attributes: {
     marketsSold: Object.keys(row.markets).join(" · "),
+    amzBadge: row.amzBadge,
     ...row.attributes,
   },
 }));
